@@ -20,17 +20,17 @@ import com.picpay.domain.user.User;
 public class UserController {
 
 	@Autowired
-	private UserService userService;
+	private UserService service;
 
 	@PostMapping
 	public ResponseEntity<User> createUser(@RequestBody UserDTO user) {
-		User newUser = userService.createUser(user);
+		User newUser = service.createUser(user);
 		return new ResponseEntity<>(newUser, HttpStatus.CREATED);
 	}
 
 	@GetMapping
 	public ResponseEntity<List<User>> findAllUsers() {
-		List<User> list = userService.findAllUsers();
+		List<User> list = service.findAllUsers();
 		return ResponseEntity.ok(list);
 	}
 

@@ -26,7 +26,7 @@ public class User {
 	private String lastName;
 
 	@Column(unique = true)
-	private Long document;
+	private String document;
 
 	@Column(unique = true)
 	private String email;
@@ -36,6 +36,21 @@ public class User {
 	
 	@Enumerated(EnumType.STRING)
 	private UserType userType;
+	
+	public User() {
+	}
+
+	public User(Long id, String firstName, String lastName, String document, String email, String password,
+			BigDecimal balance, UserType userType) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.document = document;
+		this.email = email;
+		this.password = password;
+		this.balance = balance;
+		this.userType = userType;
+	}
 
 	public User(UserDTO data) {
 		firstName = data.getFirstName();
@@ -71,11 +86,11 @@ public class User {
 		this.firstName = firstName;
 	}
 
-	public Long getdocument() {
+	public String getdocument() {
 		return document;
 	}
 
-	public void setdocument(Long document) {
+	public void setdocument(String document) {
 		this.document = document;
 	}
 

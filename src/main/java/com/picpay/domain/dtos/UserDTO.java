@@ -12,13 +12,16 @@ public class UserDTO {
 	
 	private String firstName;
 	private String lastName;
-	private Long document;
+	private String document;
 	private String email;
 	private String password;
 	private BigDecimal balance;
 
 	@Enumerated(EnumType.STRING)
 	private UserType userType;
+	
+	public UserDTO() {
+	}
 	
 	public UserDTO(User user) {
 		firstName = user.getFirstName();
@@ -47,11 +50,11 @@ public class UserDTO {
 		this.lastName = lastName;
 	}
 
-	public Long getDocument() {
+	public String getDocument() {
 		return document;
 	}
 
-	public void setDocument(Long document) {
+	public void setDocument(String document) {
 		this.document = document;
 	}
 
