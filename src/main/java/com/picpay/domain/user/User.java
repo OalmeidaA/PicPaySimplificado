@@ -3,6 +3,8 @@ package com.picpay.domain.user;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import com.picpay.domain.dtos.UserDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -35,7 +37,14 @@ public class User {
 	@Enumerated(EnumType.STRING)
 	private UserType userType;
 
-	public User() {
+	public User(UserDTO data) {
+		firstName = data.getFirstName();
+		lastName = data.getLastName();
+		document = data.getDocument();
+		email = data.getEmail();
+		password = data.getPassword();
+		balance = data.getBalance();
+		userType = data.getUserType();
 	}
 
 	public Long getId() {
