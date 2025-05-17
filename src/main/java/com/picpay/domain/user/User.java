@@ -1,5 +1,6 @@
 package com.picpay.domain.user;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -29,7 +30,7 @@ public class User {
 	private String email;
 
 	private String password;
-	private Long bigDecimal;
+	private BigDecimal balance;
 	
 	@Enumerated(EnumType.STRING)
 	private UserType userType;
@@ -85,12 +86,20 @@ public class User {
 		this.password = password;
 	}
 
-	public Long getBigDecimal() {
-		return bigDecimal;
+	public BigDecimal getBalance() {
+		return balance;
 	}
 
-	public void setBigDecimal(Long bigDecimal) {
-		this.bigDecimal = bigDecimal;
+	public void setBalance(BigDecimal balance) {
+		this.balance = balance;
+	}
+	
+	public UserType getUserType() {
+		return userType;
+	}
+
+	public void setUserType(UserType userType) {
+		this.userType = userType;
 	}
 
 	@Override
